@@ -6,6 +6,8 @@ import com.zzh.admin.common.base.entity.SimpleUser;
 import com.zzh.admin.common.base.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -14,16 +16,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @Slf4j
+@RefreshScope
 public class TokenFilter implements GlobalFilter, Ordered {
+
+    @Value("${white.path}")
+    private Set<String> whitePath;
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String requestPath = exchange.getRequest().getPath().value();
         log.info("requestPath is {}", requestPath);
-        // 判断是否为白名单
+        if (whitePath.contains(requestPath)) {
+            return chain.filter(exchange);
+        }
         List<String> tokens = exchange.getRequest().getHeaders().get(RequestHeader.TOKEN_KEY);
         if (tokens == null || tokens.isEmpty()) {
             throw new IllegalStateException("Token is empty");
@@ -43,5 +53,10 @@ public class TokenFilter implements GlobalFilter, Ordered {
     @Override
     public int getOrder() {
         return Ordered.HIGHEST_PRECEDENCE;
+    }
+
+    @PostConstruct
+    public void logWhitePath() {
+        log.info("whitePath is {}", whitePath);
     }
 }
