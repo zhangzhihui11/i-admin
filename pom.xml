@@ -11,6 +11,9 @@
     <modules>
         <module>admin-common</module>
         <module>admin-gateway</module>
+        <module>admin-system</module>
+        <module>admin-system/system.sdk</module>
+        <module>admin-system/system.server</module>
     </modules>
 
     <properties>
@@ -42,6 +45,12 @@
                 <version>2021.0.4.0</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.5.4.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
