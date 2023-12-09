@@ -17,4 +17,3 @@ spring:
 
 white:
   path: /system/user/register,/system/user/login
-name: root

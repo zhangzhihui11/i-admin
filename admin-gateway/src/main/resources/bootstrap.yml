@@ -14,7 +14,11 @@ spring:
         server-addr: 127.0.0.1:8848
         namespace: dev
         file-extension: yml
-
+    gateway:
+      routes:
+        - id: system-server
+          uri: lb://system-server
+          predicates:
+            - Path=/system/api/**
 white:
   path: /system/user/register,/system/user/login
-name: root
