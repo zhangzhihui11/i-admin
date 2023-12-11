@@ -1,9 +1,13 @@
 package com.zzh.admin.common.base.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum RespStatus {
 
     SUCCESS(10200, "Success"),
     FAILED(10400, "Failed"),
+    INVALID_INPUT(10500, "非法入参"),
     ;
 
     private final Integer code;
@@ -15,11 +19,4 @@ public enum RespStatus {
         this.message = message;
     }
 
-    public Integer getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 }
