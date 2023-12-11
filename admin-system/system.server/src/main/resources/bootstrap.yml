@@ -1,0 +1,23 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /system/api
+
+spring:
+  application:
+    name: system-server
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+        file-extension: yml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db_test
