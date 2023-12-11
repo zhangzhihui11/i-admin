@@ -3,8 +3,11 @@ package com.zzh.admin.gateway.filter;
 import com.alibaba.fastjson2.JSON;
 import com.zzh.admin.common.base.constants.RequestHeader;
 import com.zzh.admin.common.base.entity.SimpleUser;
+import com.zzh.admin.common.base.enums.ExceptionEnum;
+import com.zzh.admin.common.base.exception.AuthException;
 import com.zzh.admin.common.base.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -30,7 +33,6 @@ public class TokenFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String requestPath = exchange.getRequest().getPath().value();
-        log.info("requestPath is {}", requestPath);
         if (whitePath.contains(requestPath)) {
             return chain.filter(exchange);
         }
@@ -40,7 +42,12 @@ public class TokenFilter implements GlobalFilter, Ordered {
         }
         String token = tokens.get(0);
         if (null != token) {
-            Claims claims = JwtUtil.parseToken(token);
+            Claims claims;
+            try {
+                claims = JwtUtil.parseToken(token);
+            } catch (ExpiredJwtException e) {
+                throw new AuthException(ExceptionEnum.EXPIRED_TOKEN);
+            }
             SimpleUser simpleUser = new SimpleUser();
             simpleUser.setAccount(claims.get("userAccount", String.class));
             simpleUser.setUserId(claims.get("userId", Long.class));
