@@ -19,13 +19,16 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        if (body instanceof Resp) {
-            return body;
+        if (selectedContentType.toString().contains(MediaType.APPLICATION_JSON_VALUE)) {
+            if (body instanceof Resp) {
+                return body;
+            }
+            if (body instanceof String) {
+                // 确认优化点
+                return JSON.toJSONString(Resp.success(body));
+            }
+            return Resp.success(body);
         }
-        if (body instanceof String) {
-            // 确认优化点
-            return JSON.toJSONString(Resp.success(body));
-        }
-        return Resp.success(body);
+        return body;
     }
 }
