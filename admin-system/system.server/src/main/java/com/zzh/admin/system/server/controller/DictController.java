@@ -1,14 +1,13 @@
 package com.zzh.admin.system.server.controller;
 
+import com.zzh.admin.system.sdk.entity.dto.DictDTO;
 import com.zzh.admin.system.sdk.entity.vo.DictVO;
-import com.zzh.admin.system.server.mapper.DictMapper;
+import com.zzh.admin.system.server.service.DictService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -17,10 +16,15 @@ import java.util.List;
 @RequestMapping("/dict")
 public class DictController {
 
-    private final DictMapper dictMapper;
+    private final DictService dictService;
 
     @GetMapping()
     public List<DictVO> getDict(@RequestParam List<String> dictTypes) {
-        return dictMapper.getDictByTypes(dictTypes);
+        return dictService.getDictByType(dictTypes);
+    }
+
+    @PostMapping
+    public Boolean insertDict(@RequestBody @Valid DictDTO dictDTO) {
+        return dictService.insertDict(dictDTO);
     }
 }

@@ -12,4 +12,8 @@
                 #{item}
             </foreach>
     </select>
+
+    <select id="getDictIdByTypeAndVal" resultType="java.lang.Long">
+        select id from t_dict where dict_type = #{dictType} and dict_val = #{dictVal}
+    </select>
 </mapper>
