@@ -47,6 +47,8 @@ public class TokenFilter implements GlobalFilter, Ordered {
                 claims = JwtUtil.parseToken(token);
             } catch (ExpiredJwtException e) {
                 throw new AuthException(ExceptionEnum.EXPIRED_TOKEN);
+            }catch (Exception e) {
+                throw new AuthException(ExceptionEnum.INVALID_TOKEN);
             }
             SimpleUser simpleUser = new SimpleUser();
             simpleUser.setAccount(claims.get("userAccount", String.class));
