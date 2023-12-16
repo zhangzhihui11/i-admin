@@ -14,7 +14,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>common-base</module>
-        <module>common-web</module>
+        <module>common-web-starter</module>
+        <module>common-mybatis</module>
     </modules>
 
     <properties>

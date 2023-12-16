@@ -1,4 +1,4 @@
-package com.zzh.admin.common.base.interceptor;
+package com.zzh.admin.common.web.interceptor;
 
 import com.alibaba.fastjson2.JSON;
 import com.zzh.admin.common.base.constants.RequestHeader;

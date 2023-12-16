@@ -8,9 +8,9 @@ public class CommonBaseWebImportSelector implements ImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
         return new String[] {
-                "com.zzh.admin.common.base.configuration.WebMvcConfiguration",
-                "com.zzh.admin.common.base.support.GlobalExceptionHandler",
-                "com.zzh.admin.common.base.support.GlobalResponseBodyAdvice"
+                "com.zzh.admin.common.web.configure.WebMvcConfiguration",
+                "com.zzh.admin.common.web.configure.handler.GlobalExceptionHandler",
+                "com.zzh.admin.common.web.configure.advice.GlobalResponseBodyAdvice"
         };
     }
 }

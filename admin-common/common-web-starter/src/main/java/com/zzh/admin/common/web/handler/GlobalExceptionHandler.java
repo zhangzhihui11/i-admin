@@ -1,4 +1,4 @@
-package com.zzh.admin.common.base.support;
+package com.zzh.admin.common.web.handler;
 
 import com.zzh.admin.common.base.enums.RespStatus;
 import com.zzh.admin.common.base.response.Resp;

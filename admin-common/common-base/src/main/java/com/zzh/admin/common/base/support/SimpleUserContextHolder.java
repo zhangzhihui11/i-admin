@@ -19,4 +19,6 @@ public class SimpleUserContextHolder {
     public static void clearSimpleUserHolder() {
         SIMPLE_USER_THREAD_LOCAL.remove();
     }
+
+    private SimpleUserContextHolder() {}
 }

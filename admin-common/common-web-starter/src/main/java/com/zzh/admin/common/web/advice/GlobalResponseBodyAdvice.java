@@ -1,4 +1,4 @@
-package com.zzh.admin.common.base.support;
+package com.zzh.admin.common.web.advice;
 
 import com.alibaba.fastjson2.JSON;
 import com.zzh.admin.common.base.response.Resp;

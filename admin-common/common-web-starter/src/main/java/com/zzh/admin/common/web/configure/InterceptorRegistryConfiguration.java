@@ -1,11 +1,12 @@
-package com.zzh.admin.common.base.configuration;
+package com.zzh.admin.common.web.configure;
 
-import com.zzh.admin.common.base.interceptor.SimpleUserInterceptor;
+import com.zzh.admin.common.web.interceptor.SimpleUserInterceptor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-public class WebMvcConfiguration implements WebMvcConfigurer {
+@Configuration
+public class InterceptorRegistryConfiguration implements WebMvcConfigurer {
 
 
     @Override
