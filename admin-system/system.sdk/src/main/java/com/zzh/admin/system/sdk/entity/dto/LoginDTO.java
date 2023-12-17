@@ -15,8 +15,12 @@ public class LoginDTO {
     private Integer loginType;
 
     @NotBlank(message = "账号不能为空")
-    private String userAccount;
+    private String principle;
 
-    @NotBlank(message = "密码不能为空")
     private String password;
+
+    private String smsCode;
+
+    private String checkCode;
+
 }
