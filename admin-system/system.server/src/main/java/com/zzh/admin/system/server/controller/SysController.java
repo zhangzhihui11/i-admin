@@ -17,7 +17,7 @@ public class SysController {
     @PostMapping("/login")
     public String login(@Valid @RequestBody LoginDTO loginDTO) {
         SimpleUser simpleUser = new SimpleUser();
-        simpleUser.setAccount(loginDTO.getUserAccount());
+        simpleUser.setAccount(loginDTO.getPrinciple());
         simpleUser.setUserId(100L);
         return JwtUtil.generateToken(simpleUser);
     }
