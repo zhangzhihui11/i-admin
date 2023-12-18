@@ -23,3 +23,10 @@ spring:
     url: jdbc:mysql://localhost:3306/db_test
 mybatis-plus:
   mapper-locations: classpath:/mapper/**
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-not-delete-value: 0
+      logic-delete-value: 1
