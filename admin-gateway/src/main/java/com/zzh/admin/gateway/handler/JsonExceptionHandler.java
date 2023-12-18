@@ -55,6 +55,6 @@ public class JsonExceptionHandler implements ErrorWebExceptionHandler {
             ResponseStatusException e = (ResponseStatusException) ex;
             return Resp.buildResp(e.getStatus().value(), e.getMessage(), null);
         }
-        return Resp.failed();
+        return Resp.buildResp(10400, ex.getMessage(), null);
     }
 }

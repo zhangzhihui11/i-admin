@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ExceptionEnum {
     INVALID_TOKEN(10401, "无效的token"),
+    EMPTY_TOKEN(10401, "token为空"),
     EXPIRED_TOKEN(10401, "token已过期")
     ;
     private final Integer code;

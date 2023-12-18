@@ -38,7 +38,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
         }
         List<String> tokens = exchange.getRequest().getHeaders().get(RequestHeader.ACCESS_TOKEN_KEY);
         if (tokens == null || tokens.isEmpty()) {
-            throw new IllegalStateException("Token is empty");
+            throw new AuthException(ExceptionEnum.EMPTY_TOKEN);
         }
         String token = tokens.get(0);
         if (null != token) {
