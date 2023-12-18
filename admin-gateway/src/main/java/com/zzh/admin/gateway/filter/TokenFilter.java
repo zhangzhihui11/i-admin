@@ -36,7 +36,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
         if (whitePath.contains(requestPath)) {
             return chain.filter(exchange);
         }
-        List<String> tokens = exchange.getRequest().getHeaders().get(RequestHeader.TOKEN_KEY);
+        List<String> tokens = exchange.getRequest().getHeaders().get(RequestHeader.ACCESS_TOKEN_KEY);
         if (tokens == null || tokens.isEmpty()) {
             throw new IllegalStateException("Token is empty");
         }
@@ -51,7 +51,7 @@ public class TokenFilter implements GlobalFilter, Ordered {
                 throw new AuthException(ExceptionEnum.INVALID_TOKEN);
             }
             SimpleUser simpleUser = new SimpleUser();
-            simpleUser.setAccount(claims.get("userAccount", String.class));
+            simpleUser.setTenantId(claims.get("tenantId", Long.class));
             simpleUser.setUserId(claims.get("userId", Long.class));
             ServerHttpRequest newRequest = exchange.getRequest().mutate().header(RequestHeader.SIMPLE_USER_KEY, JSON.toJSONString(simpleUser)).build();
             return chain.filter(exchange.mutate().request(newRequest).build());
