@@ -7,15 +7,7 @@ public class SimpleUser {
 
     private Long userId;
 
-    private String account;
-
-    private String nickname;
-
-    private String email;
+    private Long tenantId;
 
     private String mobile;
-
-    private String avatar;
-
-    private Integer status;
 }

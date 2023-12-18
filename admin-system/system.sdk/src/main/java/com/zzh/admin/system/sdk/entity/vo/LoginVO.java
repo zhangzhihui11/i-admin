@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class LoginVO {
 
-    private String userId;
+    private Long userId;
 
-    private String tenantId;
+    private Long tenantId;
 
     private String nickname;
 

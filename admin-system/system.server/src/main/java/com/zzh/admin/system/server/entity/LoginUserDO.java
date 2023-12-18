@@ -26,6 +26,8 @@ public class LoginUserDO {
 
     private String password;
 
+    private String nickname;
+
     private String avatar;
 
     private Integer status;
