@@ -14,6 +14,9 @@ public class LoginDTO {
     @NotNull(message = "登录方式不能为空")
     private Integer loginType;
 
+    @NotNull(message = "租户id不能为空")
+    private Long tenantId;
+
     @NotBlank(message = "账号不能为空")
     private String principle;
 
