@@ -24,11 +24,11 @@ public class JwtUtil {
         return generateToken(user, DEFAULT_LIVED_SECONDS);
     }
 
-    public static String generateToken(@NonNull final SimpleUser user, @NonNull long liveSeconds) {
+    public static String generateToken(@NonNull final SimpleUser user, @NonNull Long liveSeconds) {
 
         return Jwts.builder()
                 .claim("userId", user.getUserId())
-                .claim("userAccount", user.getAccount())
+                .claim("tenantId", user.getTenantId())
                 .expiration(Date.from(Instant.now().plusSeconds(liveSeconds)))
                 .signWith(SECRET_KEY, SECRET_KEY_ALGORITHM)
                 .compact();
@@ -37,7 +37,6 @@ public class JwtUtil {
     public static Claims parseToken(@NonNull final String token) {
         return (Claims) Jwts.parser().verifyWith(SECRET_KEY).build().parse(token).getPayload();
     }
-
 
     private JwtUtil() {}
 }

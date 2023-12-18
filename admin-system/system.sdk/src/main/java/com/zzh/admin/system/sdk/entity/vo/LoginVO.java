@@ -9,10 +9,6 @@ public class LoginVO {
 
     private Long tenantId;
 
-    private String nickname;
-
-    private String avatar;
-
     private String accessToken;
 
     private String refreshToken;

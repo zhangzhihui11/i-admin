@@ -6,7 +6,7 @@
 
     <select id="selectByTenantIdAndMobileAndPassword"
             resultType="com.zzh.admin.system.server.entity.LoginUserDO">
-        select user_id,tenant_id, nickname, avatar from t_login_user
+        select user_id,tenant_id from t_login_user
                                          where
                                              tenant_id = #{tenantId}
         and mobile = #{mobile} and password = #{password}
@@ -15,7 +15,7 @@
 
     <select id="selectByTenantIdAndEmailAndPassword"
             resultType="com.zzh.admin.system.server.entity.LoginUserDO">
-        select user_id,tenant_id, nickname, avatar from t_login_user
+        select user_id,tenant_id from t_login_user
         where
             tenant_id = #{tenantId}
           and email = #{email} and password = #{password}
