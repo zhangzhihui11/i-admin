@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface DictService  {
 
-    List<DictVO> getDictByType(List<String> dictTypes);
+    List<DictVO> getDictByType(List<String> types);
 
     boolean isExists(String dictType, String dictVal);
 

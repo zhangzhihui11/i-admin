@@ -19,8 +19,8 @@ public class DictController {
     private final DictService dictService;
 
     @GetMapping()
-    public List<DictVO> getDict(@RequestParam List<String> dictTypes) {
-        return dictService.getDictByType(dictTypes);
+    public List<DictVO> getDict(@RequestParam List<String> types) {
+        return dictService.getDictByType(types);
     }
 
     @PostMapping

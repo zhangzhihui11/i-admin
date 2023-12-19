@@ -21,8 +21,8 @@ public class DictServiceImpl implements DictService {
     private  DictMapper dictMapper;
 
     @Override
-    public List<DictVO> getDictByType(List<String> dictTypes) {
-       return dictMapper.getDictByTypes(dictTypes);
+    public List<DictVO> getDictByType(List<String> types) {
+       return dictMapper.getDictByTypes(types);
     }
 
     @Override
