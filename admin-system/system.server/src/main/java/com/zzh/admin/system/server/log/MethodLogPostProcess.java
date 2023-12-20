@@ -1,4 +1,4 @@
-package com.zzh.admin.system.server.test;
+package com.zzh.admin.system.server.log;
 
 import com.zzh.admin.common.base.annotations.Log;
 import org.springframework.aop.Pointcut;
@@ -13,12 +13,12 @@ import java.lang.annotation.Annotation;
 @Component
 public class MethodLogPostProcess extends AbstractBeanFactoryAwareAdvisingPostProcessor implements InitializingBean {
 
-    private final Class<? extends Annotation> logType = Log.class;
+    private static final Class<? extends Annotation> LOG_TYPE = Log.class;
 
 
     @Override
     public void afterPropertiesSet() {
-        Pointcut pointcut = new AnnotationMatchingPointcut(logType, true);
+        Pointcut pointcut = new AnnotationMatchingPointcut(LOG_TYPE, true);
         this.advisor = new DefaultPointcutAdvisor(pointcut, new MethodLogInterceptor());
     }
 }

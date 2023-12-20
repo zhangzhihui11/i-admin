@@ -1,4 +1,4 @@
-package com.zzh.admin.system.server.test;
+package com.zzh.admin.system.server.log;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
