@@ -16,7 +16,7 @@ public class MethodLogPostProcess extends AbstractBeanFactoryAwareAdvisingPostPr
 
     @Override
     public void afterPropertiesSet() {
-        Pointcut pointcut = new AnnotationMatchingPointcut(LOG_TYPE, LOG_TYPE, true);
+        Pointcut pointcut = new AnnotationMatchingPointcut(LOG_TYPE,  true);
         advisor = new DefaultPointcutAdvisor(pointcut, new MethodLogInterceptor());
     }
 }
