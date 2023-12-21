@@ -6,11 +6,9 @@ import org.springframework.aop.framework.autoproxy.AbstractBeanFactoryAwareAdvis
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.annotation.AnnotationMatchingPointcut;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 
-@Component
 public class MethodLogPostProcess extends AbstractBeanFactoryAwareAdvisingPostProcessor implements InitializingBean {
 
     private static final Class<? extends Annotation> LOG_TYPE = Log.class;
@@ -18,7 +16,7 @@ public class MethodLogPostProcess extends AbstractBeanFactoryAwareAdvisingPostPr
 
     @Override
     public void afterPropertiesSet() {
-        Pointcut pointcut = new AnnotationMatchingPointcut(LOG_TYPE, true);
-        this.advisor = new DefaultPointcutAdvisor(pointcut, new MethodLogInterceptor());
+        Pointcut pointcut = new AnnotationMatchingPointcut(LOG_TYPE, LOG_TYPE, true);
+        advisor = new DefaultPointcutAdvisor(pointcut, new MethodLogInterceptor());
     }
 }
