@@ -3,6 +3,8 @@ package com.zzh.admin.common.web.handler;
 import com.zzh.admin.common.base.enums.RespStatus;
 import com.zzh.admin.common.base.exception.BizException;
 import com.zzh.admin.common.base.response.Resp;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -10,8 +12,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger LOG = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(Exception.class)
     public Resp<Object> handleException(Exception e) {
+        LOG.error("发生异常",e);
         if (e instanceof MethodArgumentNotValidException) {
             return handleMethodArgumentNotValidException((MethodArgumentNotValidException) e);
         }
