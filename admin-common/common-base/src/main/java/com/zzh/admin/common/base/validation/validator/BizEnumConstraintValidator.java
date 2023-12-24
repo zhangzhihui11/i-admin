@@ -1,5 +1,6 @@
 package com.zzh.admin.common.base.validation.validator;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.zzh.admin.common.base.exception.BizException;
 import com.zzh.admin.common.base.validation.anntations.BizEnum;
 import org.springframework.util.ReflectionUtils;
@@ -7,7 +8,6 @@ import org.springframework.util.ReflectionUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
@@ -45,13 +45,9 @@ public class BizEnumConstraintValidator implements ConstraintValidator<BizEnum, 
             throw new BizException(10400, "未找对对应字段的get方法");
         }
         for (Object value : values) {
-            try {
-                Object res = method.invoke(value, (Object[]) null);
-                if (Objects.equals(res, o)) {
-                    return true;
-                }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new BizException(10400, "");
+            Object res = BeanUtil.getFieldValue(value, fieldName);
+            if (Objects.equals(res, o)) {
+                return true;
             }
         }
 
