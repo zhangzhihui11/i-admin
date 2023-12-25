@@ -1,6 +1,6 @@
 package com.zzh.admin.system.server.controller;
 
-import com.zzh.admin.common.base.annotations.Log;
+import com.zzh.admin.common.base.log.annotation.MethodCostTimeLog;
 import com.zzh.admin.system.sdk.entity.dto.LoginDTO;
 import com.zzh.admin.system.sdk.entity.vo.LoginVO;
 import com.zzh.admin.system.server.service.LoginUserService;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@Log
+@MethodCostTimeLog
 public class SysController {
 
     private final LoginUserService loginUserService;

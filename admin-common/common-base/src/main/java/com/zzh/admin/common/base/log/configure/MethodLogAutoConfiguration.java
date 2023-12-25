@@ -1,5 +1,6 @@
-package com.zzh.admin.system.server.log;
+package com.zzh.admin.common.base.log.configure;
 
+import com.zzh.admin.common.base.log.MethodLogPostProcess;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.SearchStrategy;
 import org.springframework.context.annotation.Bean;

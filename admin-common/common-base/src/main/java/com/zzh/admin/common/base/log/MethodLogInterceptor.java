@@ -1,4 +1,4 @@
-package com.zzh.admin.system.server.log;
+package com.zzh.admin.common.base.log;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
