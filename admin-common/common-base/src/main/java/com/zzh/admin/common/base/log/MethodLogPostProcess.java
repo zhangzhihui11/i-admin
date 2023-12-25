@@ -1,6 +1,6 @@
-package com.zzh.admin.system.server.log;
+package com.zzh.admin.common.base.log;
 
-import com.zzh.admin.common.base.annotations.Log;
+import com.zzh.admin.common.base.log.annotation.MethodCostTimeLog;
 import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.autoproxy.AbstractBeanFactoryAwareAdvisingPostProcessor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
@@ -11,7 +11,7 @@ import java.lang.annotation.Annotation;
 
 public class MethodLogPostProcess extends AbstractBeanFactoryAwareAdvisingPostProcessor implements InitializingBean {
 
-    private static final Class<? extends Annotation> LOG_TYPE = Log.class;
+    private static final Class<? extends Annotation> LOG_TYPE = MethodCostTimeLog.class;
 
 
     @Override

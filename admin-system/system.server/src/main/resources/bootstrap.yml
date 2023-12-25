@@ -21,6 +21,9 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/db_test
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 mybatis-plus:
   mapper-locations: classpath:/mapper/**
   configuration:
@@ -30,3 +33,4 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-not-delete-value: 0
       logic-delete-value: 1
+

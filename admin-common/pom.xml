@@ -16,6 +16,7 @@
         <module>common-base</module>
         <module>common-web-starter</module>
         <module>common-mybatis-starter</module>
+        <module>common-swagger</module>
     </modules>
 
     <properties>
