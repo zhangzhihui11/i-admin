@@ -17,6 +17,7 @@ import springfox.documentation.spring.web.plugins.ApiSelectorBuilder;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -61,7 +62,15 @@ public class SwaggerAutoConfiguration {
     private List<String> getSpringBootBasePackage() {
         Map<String, Object> beanMap = applicationContext.getBeansWithAnnotation(SpringBootApplication.class);
         List<String> list = new ArrayList<>();
-        beanMap.values().forEach(bean -> list.add(bean.getClass().getPackage().getName()));
+        for (Object bean : beanMap.values()) {
+            SpringBootApplication ann = bean.getClass().getAnnotation(SpringBootApplication.class);
+            String[] res = ann.scanBasePackages();
+            if (res.length > 0) {
+                Collections.addAll(list, res);
+            } else {
+                list.add(bean.getClass().getPackage().getName());
+            }
+        }
         LOG.info("spring boot base package is {}" , list);
         return list;
     }
