@@ -14,6 +14,9 @@
         <module>admin-system</module>
         <module>admin-system/system.sdk</module>
         <module>admin-system/system.server</module>
+        <module>admin-message-center</module>
+        <module>admin-message-center/message-center-sdk</module>
+        <module>admin-message-center/message-center-server</module>
     </modules>
 
     <properties>
