@@ -12,6 +12,7 @@
 
     <groupId>com.zzh.admin.system</groupId>
     <artifactId>admin-system</artifactId>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
