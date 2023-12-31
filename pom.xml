@@ -11,16 +11,13 @@
     <modules>
         <module>admin-common</module>
         <module>admin-gateway</module>
-        <module>admin-system</module>
-        <module>admin-system/system.sdk</module>
-        <module>admin-system/system.server</module>
         <module>admin-message-center</module>
-        <module>admin-message-center/message-center-sdk</module>
-        <module>admin-message-center/message-center-server</module>
+        <module>admin-pay-center</module>
+        <module>admin-system</module>
     </modules>
 
     <properties>
-        <revision>1.0-SNAPSHOT</revision>
+        <revision>3.0-release</revision>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -81,11 +78,14 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
                 <version>1.2.7</version>
                 <configuration>
-                    <!--                    <updatePomFile>true</updatePomFile>-->
                     <flattenMode>resolveCiFriendliesOnly</flattenMode>
                 </configuration>
                 <executions>

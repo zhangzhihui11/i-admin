@@ -1,0 +1,11 @@
+# 基础镜像
+FROM openjdk:8-jdk-alpine
+# 挂载目录(容器启动时)
+VOLUME /usr/local/water
+# 创建目录（该命令是容器运行时才会执行）
+RUN mkdir -p /usr/local/water
+# 指定路径
+WORKDIR /usr/local/water
+# 把当前路径的target目录下的jar包拷贝到镜像中，并重命名为water.jar
+COPY ./target/water-1.1.jar /usr/local/water/water.jar
+ENTRYPOINT ["java","-jar","/usr/local/water/water.jar"]

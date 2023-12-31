@@ -9,12 +9,12 @@
         <version>${revision}</version>
     </parent>
 
-    <groupId>com.zzh.admin.system</groupId>
-    <artifactId>admin-system</artifactId>
+    <groupId>com.zzh.admin.pay.center</groupId>
+    <artifactId>admin-pay-center</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>admin-system-sdk</module>
-        <module>admin-system-server</module>
+        <module>admin-pay-center-sdk</module>
+        <module>admin-pay-center-server</module>
     </modules>
 
     <properties>

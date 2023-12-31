@@ -17,7 +17,7 @@ import java.util.Objects;
 @RestControllerAdvice
 public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
-    @Value("${server.servlet.context-path}")
+    @Value("${server.servlet.context-path:}")
     private String servletContextPath;
 
     @Override

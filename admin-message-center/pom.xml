@@ -9,6 +9,7 @@
         <version>${revision}</version>
     </parent>
 
+
     <groupId>com.zzh.admin.message</groupId>
     <artifactId>admin-message-center</artifactId>
     <packaging>pom</packaging>

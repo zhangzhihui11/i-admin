@@ -23,7 +23,7 @@ import java.util.Map;
 
 @Configuration
 @EnableOpenApi
-public class SwaggerAutoConfiguration {
+public class SwaggerAutoConfiguration  {
 
     private static final Logger LOG = LoggerFactory.getLogger(SwaggerAutoConfiguration.class);
 
@@ -74,4 +74,5 @@ public class SwaggerAutoConfiguration {
         LOG.info("spring boot base package is {}" , list);
         return list;
     }
+
 }
