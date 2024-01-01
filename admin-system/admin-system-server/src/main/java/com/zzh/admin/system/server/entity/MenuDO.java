@@ -13,19 +13,21 @@ public class MenuDO {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    private Long pid;
+
     private Long tenantId;
 
     private String menuName;
 
-    private String level;
+    private Integer level;
 
     private String reference;
 
     private Integer type;
 
-    private Integer order;
+    private Integer menuOrder;
 
-    private String creatorId;
+    private String createId;
 
     private String createTime;
 

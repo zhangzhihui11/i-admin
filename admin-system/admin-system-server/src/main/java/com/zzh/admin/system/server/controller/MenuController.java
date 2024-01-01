@@ -5,9 +5,7 @@ import com.zzh.admin.system.server.entity.MenuDO;
 import com.zzh.admin.system.server.service.MenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/menu")
@@ -21,6 +19,12 @@ public class MenuController {
         MenuDO menuEntity = new MenuDO();
         BeanUtils.copyProperties(insertDTO, menuEntity);
         return menuService.save(menuEntity);
+    }
+
+    @DeleteMapping("/{menuId}")
+    public boolean deleteMenu(@PathVariable("menuId") Long menuId) {
+
+        return menuService.deleteMenuItem(menuId);
     }
 
 }

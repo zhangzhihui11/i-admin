@@ -7,6 +7,8 @@ public class MenuInsertDTO {
 
     private Long tenantId;
 
+    private Long pid;
+
     private String menuName;
 
     private String level;
@@ -15,5 +17,5 @@ public class MenuInsertDTO {
 
     private Integer type;
 
-    private Integer order;
+    private Integer menuOrder;
 }
