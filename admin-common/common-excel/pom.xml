@@ -4,27 +4,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.zzh.admin</groupId>
-        <artifactId>i-admin</artifactId>
+        <groupId>com.zzh.admin.common</groupId>
+        <artifactId>admin-common</artifactId>
         <version>${revision}</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.zzh.admin.common</groupId>
-    <artifactId>admin-common</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>common-base</module>
-        <module>common-web-starter</module>
-        <module>common-mybatis-starter</module>
-        <module>common-swagger-starter</module>
-        <module>common-excel</module>
-    </modules>
+    <groupId>com.zzh.admin.common.excel</groupId>
+    <artifactId>common-excel</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+    </dependencies>
 
 </project>
