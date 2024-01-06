@@ -14,6 +14,7 @@
         <module>admin-message-center</module>
         <module>admin-pay-center</module>
         <module>admin-system</module>
+        <module>admin-code-generate</module>
     </modules>
 
     <properties>
